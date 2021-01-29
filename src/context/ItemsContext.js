@@ -7,6 +7,7 @@ export const ItemsContextProvider = ({children}) => {
     // const [loading, error, data] = useDataFetching('https://my-json-server.typicode.com/PacktPublishing/React-Projects-Second-Edition/items');
 
     //Controlling life cycles & get specific items from fetch
+    //& using local variable useState
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState([])
     const [error, setError] = useState('')

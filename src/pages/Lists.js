@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar/NavBar';
 import ListsContext from "../context/ListsContext";
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 
 const ListWrapper = styled.div`
   display: flex;
@@ -31,7 +31,11 @@ const Title = styled.h3`
 const Lists = () => {
   let navigate = useNavigate();
 
-  const { loading, error, lists } = useContext(ListsContext)
+  const { loading, error, lists, fetchLists } = useContext(ListsContext)
+
+    useEffect(() => {
+        !lists.length && fetchLists()
+    },[lists, fetchLists])
 
   return (
     <>
